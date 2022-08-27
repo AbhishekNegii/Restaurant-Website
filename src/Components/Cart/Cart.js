@@ -16,7 +16,7 @@ const Cart =(props)=>{
         cartcntx.addItem({ ...item,quantity:1})
         }
         const removeItemHandler=(item)=>{
-            if(item.quantity>0){
+            if(item.quantity>1){
             cartcntx.addItem({...item,quantity:-1})
             }
             else
