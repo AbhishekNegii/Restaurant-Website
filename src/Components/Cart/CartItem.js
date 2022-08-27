@@ -1,36 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
+
+
 import classes from './CartItem.module.css';
 
-const CartItem = (props) => {
-    const[quantity, setQuantity]=useState([])
+const CartItem = (props) => {   
 
-    const cartItemRemoveHandler=()=>{
-        setQuantity(prevCount=>Number(prevCount-1))
-    }
-
-
-    const cartItemAddHandler=()=>{
-        setQuantity(prevCount=>Number(prevCount+1))
-    }
-    
-
-  const price = `$${props.price}`;
+   const price = `$${props.price}`;
 //   console.log(price)
 
   return (
     <li className={classes['cart-item']}>
       <div>
         <h2>{props.name}</h2>
-        {props.food}
+        
         <div className={classes.summary}>
           <span className={classes.price}>{price}</span>
-          <span className={classes.price}>{quantity}</span>
-          <span className={classes.amount}>x {props.amount}</span>
+          <span className={classes.price}>x{props.quantity}</span>
+          {/* <span className={classes.amount}> {props.amount}</span> */}
            </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={cartItemRemoveHandler}>−</button>
-        <button onClick={cartItemAddHandler}>+</button>
+        <button onClick={props.onRemove}>−</button>
+        <button onClick={props.onAdd}>+</button>
       </div>
     </li>
   );

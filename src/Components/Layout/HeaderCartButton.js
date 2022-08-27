@@ -11,6 +11,7 @@ const HeaderCartButton =(props)=>{
    })
     
   return(
+    <React.Fragment>
         
             <button className={classes.button} onClick={props.onClick}> 
             <span className={classes.icon}>
@@ -19,7 +20,7 @@ const HeaderCartButton =(props)=>{
             <span> Your Cart </span>
             <span className={classes.badge}> {quantity} </span>
             </button> 
-    
+            </React.Fragment>
     );
 }
 
